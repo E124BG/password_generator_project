@@ -28,7 +28,7 @@ def generate_password(min_length, numbers=True, special_characters=True):
     while not meets_criteria or len(password) < min_length:
         #add one char to the password string
         new_char = random.choice(password_chars)
-        pwd += new_char
+        password += new_char
         
         if new_char in digits:
             has_number = True
@@ -40,7 +40,8 @@ def generate_password(min_length, numbers=True, special_characters=True):
             meets_criteria = has_number
         if special_characters:              #false if supposed to have special chars but either failed before (meets_criteria is already False) or doesn't have special chars
             meets_criteria = meets_criteria and has_special
-        
+    print(password)
+    return password
             
 
 generate_password(10) #will create a password of 10 chars with numbers and special chars
