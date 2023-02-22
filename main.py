@@ -18,7 +18,6 @@ def generate_password(min_length, numbers=True, special_characters=True):
         password_chars += special_chars
         
     
-    print(password_chars)
     
     password = ""
     meets_criteria = False
@@ -40,9 +39,13 @@ def generate_password(min_length, numbers=True, special_characters=True):
             meets_criteria = has_number
         if special_characters:              #false if supposed to have special chars but either failed before (meets_criteria is already False) or doesn't have special chars
             meets_criteria = meets_criteria and has_special
-    print(password)
     return password
-            
 
-generate_password(10) #will create a password of 10 chars with numbers and special chars
-generate_password(10, True, False) #will create a password with numbers and no special chars
+
+
+min_length = int(input("What is the password minimal length?\n"))
+numbers = input("Whould you like to have numbers in it (y/n) ?\n").lower() == "y" #checks if user input is lowercase y and stores the boolean
+special_chars = input("Would you like to have special chars in it (y/n) ?\n").lower() =="y"
+
+password = generate_password(min_length, numbers, special_chars)
+print(password)
