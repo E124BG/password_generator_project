@@ -46,6 +46,11 @@ def generate_password(min_length, numbers=True, special_characters=True):
 min_length = int(input("What is the password minimal length?\n"))
 numbers = input("Whould you like to have numbers in it (y/n) ?\n").lower() == "y" #checks if user input is lowercase y and stores the boolean
 special_chars = input("Would you like to have special chars in it (y/n) ?\n").lower() =="y"
+variants_number = int(input("How many variants of passwords would you like ?\n"))
 
-password = generate_password(min_length, numbers, special_chars)
-print(password)
+
+passwords_generated = 0
+while passwords_generated < variants_number:
+    password = generate_password(min_length, numbers, special_chars)
+    print(password, "\n")
+    passwords_generated +=1
